@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Register</title>
+   <style>
+   body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+input[type="text"],
+input[type="password"],
+button {
+  display: block;
+  width: calc(100% - 20px);
+  padding: 15px;
+  margin: 15px auto;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 18px;
+  transition: border-color 0.3s;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.captcha-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  top:-10px;
+}
+
+.captcha-container img {
+  margin-right: 10px;
+  border-radius: 6px;
+}.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    text-align: center;
+}
+
+.form {
+    width: 300px;
+    margin: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.eye-icon {
+    cursor: pointer;
+    float: right;
+    margin-top: -30px;
+    margin-right: 10px;
+}
+
+.captcha-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.error {
+    color: red;
+}
+
+.password-rules {
+    font-size: 12px;
+    color: #666;
+}
+
+
+/* Add this CSS code to your existing styles.css file */
+.refresh-btn {
+  background-color: #ddd;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+  top: 5px;
+}
+
+.refresh-btn:hover {
+  background-color: #ccc;
+}
+/* Add this CSS code to your existing styles1.css file */
+/* Add this CSS code to your existing styles1.css file */
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-container {
+  position: relative;
+}
+
+/* Styles for password input */
+.password-container input[type="password"] {
+  padding-right: 30px; /* Adjust padding to make space for the eye icon */
+}
+.container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      text-align: center;
+    }
+
+    .form {
+      width: 300px;
+      margin: 20px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .eye-icon {
+      position: absolute;
+      right: 10px;
+      top: 100%; /* adjust the top position to 90% */
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+    .captcha-content {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+
+    .captcha-content canvas {
+      width: 300px;
+      height: 40px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .captcha-content button {
+      margin-left: 10px;
+    }
+
+    .captcha-input {
+      margin-top: 0;
+    }
+
+    .captcha-input input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 18px;
+      height: 40px;
+      box-sizing: border-box; /* add this line to ensure the input field has the same height as the other input fields */
+    }
+#refresh-captcha:hover {
+  background-color: #ccc;
+}
+
+    #refresh-captcha {
+      font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 80px;
+  height: 40px;
+  margin-left:150px;
+  //margin-right: 10px;
+  background-color: #ddd;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: relative;
+  top: -35px;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .password-rules {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .password-container {
+      position: relative;
+    }
+
+    .password-container input[type="password"] {
+      padding-right: 30px;
+    }
+
+    /* Add the styles for the Wave CAPTCHA */
+    .captcha-container {
+
+      display: inline-block;
+      flex-direction: column;
+      align-items: center;
+      margine:10px;
+      position: relative;
+      width: 100px;
+      height: 50px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      padding: 20px;
+      margin-right: 10px;
+    }
+
+    .captcha-image {
+      position: relative;
+      width: 100%;
+      height: 50%;
+    }
+
+    .char {
+      position: absolute;
+      top: 140%;
+      left: 0%;
+      transform: translate(-50%, -50%);
+      font-size: 30px;
+      //font-weight: bold;
+      color: #333;
+      font-family: "Verdana", sans-serif;
+
+    }
+
+    #char1 {
+      animation: move 2s infinite;
+    }
+
+    #char2 {
+      animation: move 2s infinite;
+      animation-delay: 0.5s;
+    }
+
+    #char3 {
+      animation: move 2s infinite;
+      animation-delay: 1s;
+    }
+
+    #char4 {
+      animation: move 2s infinite;
+      animation-delay: 1.5s;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(30px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    .captcha-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #555;
+    }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400&display=swap');
+
+.font-style-1 {
+  font-family: 'Roboto', sans-serif;
+  //font-weight: bold;
+}
+
+.font-style-2 {
+  font-family: 'Open Sans', sans-serif;
+  //font-weight: bold;
+}
+
+.font-style-3 {
+  font-family: 'Courier Prime', monospace;
+  //font-weight: bold;
+}
+
+.font-style-4 {
+  font-family: 'Pacifico', cursive;
+  //font-weight: bold;
+}
+
+.font-style-5 {
+  font-family: 'Lobster', cursive;
+  //font-weight: bold;
+}
+
+.font-style-6 {
+  font-family: 'Raleway', sans-serif;
+  //font-weight: bold;
+}
+
+.font-style-7 {
+  font-family: 'Merriweather', serif;
+  //font-weight: bold;
+}
+
+
+  </style>
+</head>
+<body onload="generateCaptcha()">
+  <div class="container">
+    <div class="form-container">
+      <form id="loginForm" action="/login" method="post" onsubmit="return CheckValidCaptcha()">
+        <h2>Login</h2>
+        <input type="text" name="username" placeholder="Username/Email" required>
+        <div class="password-container">
+  <input type="password" name="password" id="passwordInput" placeholder="Password" required>
+  <span class="eye-icon" id="togglePassword">🕶️</span>
+</div>
+        <div class="captcha-content">
+          <div class="captcha-container">
+            <div class="captcha-image">
+              <span class="char" id="char1"></span>
+              <span class="char" id="char2"></span>
+              <span class="char" id="char3"></span>
+              <span class="char" id="char4"></span>
+              <!-- Add more characters here as needed -->
+            </div>
+            <button id="refresh-captcha" onclick="generateCaptcha()">Refresh</button>
+          </div>
+        </div>
+        <p class="captcha-note">Note: The captcha may contain mirrored and inverted characters. You can enter the captcha characters in any order.</p>
+        <div class="captcha-input">
+          <input type="text" id="txtinput" placeholder="Enter Captcha" required>
+          <span id="error" style="color:red"></span>
+          <span id="success" style="color:green"></span>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <a href="register.html" class="login-link">Don't have an account? Register</a>
+    </div>
+  </div>
+
+   <script>
+    const chars = document.querySelectorAll('.char');
+    let correctChars = [];
+
+    const alphabet = 'acefghijkorstvxyzABCDEFGHJKLNOQRSTUVXYZ';
+    const mirroredChars = 'ꓭƆꓷƎᖷꓨႱꓘ⅃И⥀ЯƧꓕɔfɓɥᴉʞɹƨ';
+    const charMap = {
+      'ꓭ': 'B', 'Ɔ': 'C', 'ꓷ': 'D', 'Ǝ': 'E', 'ᖷ': 'F',
+      'ꓨ': 'G', 'Ⴑ': 'J', 'ꓘ': 'K', '⅃': 'L', 'И': 'N',
+      '⥀': 'Q', 'Я': 'R', 'Ƨ': 'S', 'ꓕ': 'T',
+      'ɔ': 'c', 'ɓ': 'g', 'ɥ': 'h',
+      'ᴉ': 'i', 'ʞ': 'k', 'ɹ': 'r', 'ƨ': 's',
+    };
+
+    const fonts = [
+      'font-style-1', 'font-style-2', 'font-style-3', 
+      'font-style-4', 'font-style-5', 'font-style-6', 
+      'font-style-7'
+    ];
+
+ function generateCaptcha() {
+  correctChars = [];
+  const captchaLength = 4; // Set to 4 for one normal and three mirrored characters
+  chars.forEach(char => char.className = 'char'); // Reset class names
+
+  const usedFonts = new Set();
+  let normalCharIndex = Math.floor(Math.random() * captchaLength); // Random index for the normal character
+
+  const alphabet = 'acefghijkorstvxyzABCDEFGHJKLNOQRSTUVXYZ';
+  const mirroredChars = 'ꓭƆꓷƎᖷꓨႱꓘ⅃И⥀ЯƧꓕɔfɓɥᴉʞɹƨ';
+  const charMap = {
+    'ꓭ': 'B', 'Ɔ': 'C', 'ꓷ': 'D', 'Ǝ': 'E', 'ᖷ': 'F',
+    'ꓨ': 'G', 'Ⴑ': 'J', 'ꓘ': 'K', '⅃': 'L', 'И': 'N',
+    '⥀': 'Q', 'Я': 'R', 'Ƨ': 'S', 'ꓕ': 'T',
+    'ɔ': 'c', 'ɓ': 'g', 'ɥ': 'h',
+    'ᴉ': 'i', 'ʞ': 'k', 'ɹ': 'r', 'ƨ': 's',
+  };
+
+  const fonts = [
+    'font-style-1', 'font-style-2', 'font-style-3', 
+    'font-style-4', 'font-style-5', 'font-style-6', 
+    'font-style-7'
+  ];
+
+  const cases = [
+    { top: '-40%', left: '0%' },
+    { top: '-40%', left: '60%' },
+    { top: '130%', left: '60%' },
+    { top: '130%', left: '0%' },
+    { top: '90%', left: '0%' },
+    { top: '-40%', left: '30%' },
+    { top: '90%', left: '60%' },
+  ];
+
+  const randomCase = cases[Math.floor(Math.random() * cases.length)];
+
+  chars.forEach((char, index) => {
+    let randomChar;
+    if (index === normalCharIndex) {
+      randomChar = alphabet[Math.floor(Math.random() * alphabet.length)];
+    } else {
+      randomChar = mirroredChars[Math.floor(Math.random() * mirroredChars.length)];
+    }
+    char.textContent = randomChar;
+    correctChars.push(randomChar);
+
+    // Randomly assign unique font styles
+    let randomFont;
+    do {
+      randomFont = fonts[Math.floor(Math.random() * fonts.length)];
+    } while (usedFonts.has(randomFont));
+    usedFonts.add(randomFont);
+
+    char.classList.add(randomFont);
+
+    // Apply the selected case to all characters
+    char.style.top = randomCase.top;
+    char.style.left = randomCase.left;
+  });
+}
+
+    document.getElementById('refresh-captcha').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent form submission
+      generateCaptcha(); // Generate new CAPTCHA
+    });
+
+function CheckValidCaptcha() {
+  const userInput = document.getElementById('txtinput').value;
+  const userInputChars = userInput.split('');
+  let validCaptcha = correctChars.map(char => charMap[char] || char); // Map mirrored chars to normal chars
+  validCaptcha = validCaptcha.slice().sort().join('');
+
+  // Check for mirrored characters in user input
+  const mirroredInputChars = userInputChars.filter(char => Object.keys(charMap).includes(char));
+  if (mirroredInputChars.length > 0) {
+    alert('Invalid captcha. Please enter the correct characters.');
+    document.getElementById('txtinput').value = ''; // Clear the input field
+    return false; // Prevent form submission
+  }
+
+  // Map mirrored chars in userInput to normal chars and sort
+  const sortedUserInput = userInputChars.map(char => charMap[char] || char).slice().sort().join('');
+
+  if (sortedUserInput === validCaptcha) {
+    alert('Form submitted successfully!');
+    return true; // Allow form submission
+  } else {
+    alert('Invalid captcha. Please try again.');
+    document.getElementById('txtinput').value = ''; // Clear the input field
+    return false; // Prevent form submission
+  }
+}
+document.getElementById('togglePassword').addEventListener('click', function() {
+  const passwordInput = document.getElementById('passwordInput');
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    this.textContent = '👁️‍🗨️'; 
+  } else {
+    passwordInput.type = 'password';
+    this.textContent = '🕶️'; 
+  }
+});s
+    // Generate initial CAPTCHA on page load
+    document.addEventListener('DOMContentLoaded', generateCaptcha);
+  </script>
+</body>
+</html>
